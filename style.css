@@ -1,0 +1,93 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+#progress-text {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#progress-text h2 {
+    margin: 0;
+}
+
+#progress-bar {
+    width: 70%;
+    margin: 20px auto;
+    background-color: #ddd;
+    height: 30px;
+    border-radius: 15px;
+    position: relative;
+}
+
+#progress-bar span {
+    display: block;
+    height: 100%;
+    border-radius: 15px;
+    background-color: #4caf50;
+}
+
+#task-block {
+    width: 50%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.action-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.done-button {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: #fff;
+}
+
+.plus-button {
+    background-color: #2196F3;
+    color: #fff;
+    font-size: 24px; /* Increased font size */
+}
+
+.plus-button:hover {
+    background-color: #0b7dda;
+}
+
+.done-button:hover {
+    background-color: #45a049;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
+}
+
+#add-task {
+    text-align: center;
+    margin-top: 20px;
+}
