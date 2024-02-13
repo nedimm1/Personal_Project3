@@ -40,10 +40,12 @@ body {
 #task-block {
     width: 50%;
     margin: 20px auto;
+    margin-bottom: 100px;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #ccc;
 }
 
 .action-button {
@@ -90,4 +92,8 @@ body {
 #add-task {
     text-align: center;
     margin-top: 20px;
+}
+
+.hidden{
+    display: none;
 }
