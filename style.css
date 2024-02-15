@@ -37,7 +37,7 @@ body {
     background-color: #4caf50;
 }
 
-#task-block {
+#task-block0 {
     width: 50%;
     margin: 20px auto;
     margin-bottom: 100px;
@@ -61,7 +61,7 @@ body {
     transition: background-color 0.3s;
 }
 
-.done-button {
+.done-button0 {
     background-color: #4caf50;
     color: #fff;
 }
@@ -96,4 +96,9 @@ body {
 
 .hidden{
     display: none;
+}
+
+.delete-button-new{
+    background-color:  #f44336;;
+    color: #fff;
 }
