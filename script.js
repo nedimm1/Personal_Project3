@@ -3,10 +3,9 @@
 const taskBlock = document.getElementById('task-block0')
 const addTaskButton = document.querySelector('.plus-button');
 const body = document.getElementById('body');
-const deleteButton = document.querySelector('.delete-button0')
-let theCode =  '<h2>Task</h2>' +
-'<button class="action-button done-button">Done</button>' +
-'<button class="action-button delete-button0">Delete</button>'
+const deleteButton = document.querySelector('.delete-button')
+let buttonHtml =  '<h2>Task</h2>' +
+'<button class="action-button delete-button-new">Delete</button>'
 let i = 1
 
 deleteButton.addEventListener('click', function(){
@@ -17,7 +16,7 @@ deleteButton.addEventListener('click', function(){
 addTaskButton.addEventListener('click', function() {
     const task = document.createElement('div');
     task.id = `task-block${i++}`
-    task.innerHTML = theCode
+    task.innerHTML = buttonHtml
     body.append(task)
 
     task.style.width = '50%'
@@ -36,8 +35,9 @@ addTaskButton.addEventListener('click', function() {
 
     const nextElement = task.nextElementSibling;
     
-    const deleteButton = document.querySelector('.delete-button0')
-    deleteButton.className = 'delete-button-new'
+    const deleteButton = document.querySelector('.delete-button-new')
+    deleteButton.className = `delete-button${i}`
+    deleteButton.style.color = "#fff"
     deleteButton.classList.add('action-button')
     console.log(deleteButton)
     deleteButton.addEventListener('click', function(){
