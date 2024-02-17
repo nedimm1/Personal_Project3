@@ -4,8 +4,8 @@ const taskBlock = document.getElementById('task-block0')
 const addTaskButton = document.querySelector('.plus-button');
 const body = document.getElementById('body');
 const deleteButton = document.querySelector('.delete-button')
-let buttonHtml =  '<h2>Task</h2>' +
-'<button class="action-button delete-button-new">Delete</button>'
+let buttonHtml =  '<h2>Task</h2>' + 
+'<button class="action-button delete-button-new">Delete</button>' + ' <input type="checkbox" id="task-checkbox-new">'
 let i = 1
 
 deleteButton.addEventListener('click', function(){
@@ -37,6 +37,7 @@ addTaskButton.addEventListener('click', function() {
     
     const deleteButton = document.querySelector('.delete-button-new')
     deleteButton.className = `delete-button${i}`
+    deleteButton.style.marginRight = '600px'
     deleteButton.style.color = "#fff"
     deleteButton.classList.add('action-button')
     console.log(deleteButton)
