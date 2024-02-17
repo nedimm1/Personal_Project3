@@ -4,7 +4,7 @@ const taskBlock = document.getElementById('task-block0')
 const addTaskButton = document.querySelector('.plus-button');
 const body = document.getElementById('body');
 const deleteButton = document.querySelector('.delete-button')
-let buttonHtml =  '<h2>Task</h2>' + 
+let buttonHtml =   '<div class="task-header-new"><h2 class="task-number-new">Task</h2><textarea id="task-text" placeholder="Name Your Task"></textarea></div>' + 
 '<button class="action-button delete-button-new">Delete</button>' + ' <input type="checkbox" id="task-checkbox-new">'
 let i = 1
 
@@ -29,6 +29,19 @@ addTaskButton.addEventListener('click', function() {
     task.style.borderBottom = '1px solid #ccc;'
 
     console.log(task)
+
+    const taskDiv = document.querySelector('.task-header-new')
+
+    console.log(taskDiv)
+    
+    const taskNumber = document.querySelector('.task-number-new')
+    taskNumber.className = `task-number${i}`
+    taskNumber.textContent = `Task${i}: `
+
+    console.log(taskNumber)
+    // const taskNumber = document.querySelector('.task-number-new')
+    // taskNumber.className = `task-number${i}`
+    // taskNumber.textContent = `Task${i}: `
 
     const taskBlockNew = document.getElementById(task.id)
     console.log(taskBlockNew)
