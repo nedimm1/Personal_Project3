@@ -1,6 +1,7 @@
 'use strict'
 
 const taskBlock = document.getElementById('task-block0')
+const finishedTasks = document.getElementById('finished-tasks')
 const addTaskButton = document.querySelector('.plus-button');
 const body = document.getElementById('body');
 const deleteButton = document.querySelector('.delete-button')
@@ -17,7 +18,9 @@ addTaskButton.addEventListener('click', function() {
     const task = document.createElement('div');
     task.id = `task-block${i++}`
     task.innerHTML = buttonHtml
-    body.append(task)
+    finishedTasks.before(task)
+
+    console.log(finishedTasks)
 
     task.style.width = '50%'
     task.style.margin = '20px auto'
