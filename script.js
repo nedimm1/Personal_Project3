@@ -4,19 +4,29 @@ const taskBlock = document.getElementById('task-block0')
 const finishedTasks = document.getElementById('finished-tasks')
 const addTaskButton = document.querySelector('.plus-button');
 const body = document.getElementById('body');
+const checkbox = document.getElementById('task-checkbox')
 const deleteButton = document.querySelector('.delete-button')
 let buttonHtml =   '<div class="task-header-new"><h2 class="task-number-new">Task</h2><textarea id="task-text" placeholder="Name Your Task"></textarea></div>' + 
-'<button class="action-button delete-button-new">Delete</button>' + ' <input type="checkbox" id="task-checkbox-new">'
+'<button class="action-button delete-button-new">Delete</button>' + ' <input type="checkbox" class="task-checkbox-new">'
 let i = 1
 
 deleteButton.addEventListener('click', function(){
     taskBlock.remove()
 })
 
+checkbox.addEventListener('change', function(){
+  if(checkbox.checked){
+    finishedTasks.after(taskBlock)
+  }else{
+    finishedTasks.before(taskBlock)
+  }
+})
+
 
 addTaskButton.addEventListener('click', function() {
+    i++
     const task = document.createElement('div');
-    task.id = `task-block${i++}`
+    task.id = `task-block${i}`
     task.innerHTML = buttonHtml
     finishedTasks.before(task)
 
@@ -31,21 +41,18 @@ addTaskButton.addEventListener('click', function() {
     task.style.boxShadow = " 0 4px 8px rgba(0, 0, 0, 0.1)"
     task.style.borderBottom = '1px solid #ccc;'
 
-    console.log(task)
+    //console.log(task)
 
     const taskDiv = document.querySelector('.task-header-new')
 
-    console.log(taskDiv)
+    //console.log(taskDiv)
     
     const taskNumber = document.querySelector('.task-number-new')
     taskNumber.className = `task-number${i}`
     taskNumber.textContent = `Task${i}: `
 
-    console.log(taskNumber)
-    // const taskNumber = document.querySelector('.task-number-new')
-    // taskNumber.className = `task-number${i}`
-    // taskNumber.textContent = `Task${i}: `
-
+    //console.log(taskNumber)
+    console.log(task.id)
     const taskBlockNew = document.getElementById(task.id)
     console.log(taskBlockNew)
 
@@ -56,9 +63,25 @@ addTaskButton.addEventListener('click', function() {
     deleteButton.style.marginRight = '600px'
     deleteButton.style.color = "#fff"
     deleteButton.classList.add('action-button')
-    console.log(deleteButton)
+    //console.log(deleteButton)
     deleteButton.addEventListener('click', function(){
        taskBlockNew.remove()
+    })
+     
+
+
+    const checkboxNew = document.querySelector('.task-checkbox-new')
+    checkboxNew.className = `checkBox${i}`
+    checkboxNew.style.width = '50px'
+    checkboxNew.style.height = '50px'
+    
+    checkboxNew.addEventListener('change', function(){
+        if(checkboxNew.checked){
+            finishedTasks.after(taskBlockNew)
+            console.log(finishedTasks)
+          }else if(!checkboxNew.checked){
+            finishedTasks.before(taskBlockNew)
+          }
     })
 
 }
