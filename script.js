@@ -12,9 +12,6 @@ let buttonHtml = '<div class="task-header-new"><h2 class="task-number-new">Task<
     '<button class="action-button delete-button-new">Delete</button>' + ' <input type="checkbox" class="task-checkbox-new">'
 let i = 1
 let doneTaskCounter = 0
-let n = 100 / i
-
-
 
 
 
@@ -24,13 +21,10 @@ deleteButton.addEventListener('click', function () {
 
 checkbox.addEventListener('change', function () {
     if (checkbox.checked) {
-        i = i
-        n = 100 / i
         finishedTasks.after(taskBlock)
         doneTaskCounter++
         taskCounter.textContent = `tasks: ${doneTaskCounter}/${i}`
-        progressBar.style.width = `${n}%`
-        console.log(n)
+        progressBar.style.width = `${(doneTaskCounter / i) * 100}%`
     } else {
         finishedTasks.before(taskBlock)
         doneTaskCounter--
@@ -64,17 +58,14 @@ addTaskButton.addEventListener('click', function () {
     task.style.boxShadow = " 0 4px 8px rgba(0, 0, 0, 0.1)"
     task.style.borderBottom = '1px solid #ccc;'
 
-    //console.log(task)
 
     const taskDiv = document.querySelector('.task-header-new')
 
-    //console.log(taskDiv)
 
     const taskNumber = document.querySelector('.task-number-new')
     taskNumber.className = `task-number${i}`
     taskNumber.textContent = `Task${i}: `
 
-    //console.log(taskNumber)
     console.log(task.id)
     const taskBlockNew = document.getElementById(task.id)
     console.log(taskBlockNew)
@@ -86,7 +77,7 @@ addTaskButton.addEventListener('click', function () {
     deleteButton.style.marginRight = '600px'
     deleteButton.style.color = "#fff"
     deleteButton.classList.add('action-button')
-    //console.log(deleteButton)
+
     deleteButton.addEventListener('click', function () {
         taskBlockNew.remove()
     })
@@ -99,15 +90,12 @@ addTaskButton.addEventListener('click', function () {
     checkboxNew.style.height = '50px'
 
     checkboxNew.addEventListener('change', function () {
-        n = 100 / i
         if (checkboxNew.checked) {
             finishedTasks.after(taskBlockNew)
             console.log(finishedTasks)
             doneTaskCounter++
             taskCounter.textContent = `tasks: ${doneTaskCounter}/${i}`
-            progressBar.style.width = `${curr() + n}%`
-            console.log(j)
-            console.log(n)
+            progressBar.style.width = `${(doneTaskCounter / i) * 100}%`
         } else if (!checkboxNew.checked) {
             finishedTasks.before(taskBlockNew)
             doneTaskCounter--
@@ -118,7 +106,6 @@ addTaskButton.addEventListener('click', function () {
 
     taskCounter.textContent = `tasks done: ${doneTaskCounter}/${i}`
 
-    console.log(n = 100 / i)
 
 }
 );
