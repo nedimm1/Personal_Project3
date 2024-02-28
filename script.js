@@ -12,35 +12,55 @@ let buttonHtml = '<div class="task-header-new"><h2 class="task-number-new">Task<
     '<button class="action-button delete-button-new">Delete</button>' + ' <input type="checkbox" class="task-checkbox-new">'
 let i = 1
 let doneTaskCounter = 0
+let percent;
+let percent2;
 
 
 
 deleteButton.addEventListener('click', function () {
     taskBlock.remove()
+    i--
+    percent2 = 100 / i
+    percent = (doneTaskCounter / i) * 100
+    let finalPrecent = percent - percent2
+    taskCounter.textContent = `tasks: ${doneTaskCounter}/${i}`
+    progressBar.style.width = `${finalPrecent}`
+    if(i === 0){
+        progressBar.style.width = '0%'
+        doneTaskCounter = 0
+    }
+
 })
 
 checkbox.addEventListener('change', function () {
     if (checkbox.checked) {
         finishedTasks.after(taskBlock)
         doneTaskCounter++
+        percent = (doneTaskCounter / i) * 100
         taskCounter.textContent = `tasks: ${doneTaskCounter}/${i}`
-        progressBar.style.width = `${(doneTaskCounter / i) * 100}%`
+        progressBar.style.width = `${percent}%`
     } else {
         finishedTasks.before(taskBlock)
         doneTaskCounter--
+        percent2 = 100 / i
+        percent = (doneTaskCounter / i) * 100
+        let finalPrecent = percent - percent2
         taskCounter.textContent = `tasks: ${doneTaskCounter}/${i}`
+        progressBar.style.width = `${finalPrecent}`
     }
 })
-
-function curr(){
-     
-    }
 
 taskCounter.textContent = `tasks: ${doneTaskCounter}/${i}`
 
 addTaskButton.addEventListener('click', function () {
     i++
-    
+
+    percent2 = 100 / i
+    percent = (doneTaskCounter / i) * 100
+    let finalPrecent = percent - percent2
+    taskCounter.textContent = `tasks: ${doneTaskCounter}/${i}`
+    progressBar.style.width = `${finalPrecent}`
+
 
     const task = document.createElement('div');
     task.id = `task-block${i}`
@@ -80,6 +100,8 @@ addTaskButton.addEventListener('click', function () {
 
     deleteButton.addEventListener('click', function () {
         taskBlockNew.remove()
+        i--
+        taskCounter.textContent = `tasks done: ${doneTaskCounter}/${i}`
     })
 
 
@@ -94,13 +116,24 @@ addTaskButton.addEventListener('click', function () {
             finishedTasks.after(taskBlockNew)
             console.log(finishedTasks)
             doneTaskCounter++
+            percent = (doneTaskCounter / i) * 100
             taskCounter.textContent = `tasks: ${doneTaskCounter}/${i}`
-            progressBar.style.width = `${(doneTaskCounter / i) * 100}%`
+            progressBar.style.width = `${percent}%`
         } else if (!checkboxNew.checked) {
-            finishedTasks.before(taskBlockNew)
+            percent2 = 100 / i
+            console.log(percent2)
             doneTaskCounter--
-            console.log(doneTaskCounter)
+            percent = (doneTaskCounter / i) * 100
+            let finalPrecent = percent - percent2
+            console.log(percent, percent2, finalPrecent)
             taskCounter.textContent = `tasks: ${doneTaskCounter}/${i}`
+            progressBar.style.width = `${finalPrecent}%`
+            finishedTasks.before(taskBlockNew)
+            console.log(progressBar)
+            if (doneTaskCounter === 0) {
+                progressBar.style.width = '0%'
+            }
+
         }
     })
 
